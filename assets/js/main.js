@@ -110,4 +110,26 @@
     })
   });
 
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const linkedinButton = document.querySelector(".linkedin-icon");
+  
+    if (linkedinButton) {
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              linkedinButton.classList.add("bounce");
+              observer.disconnect(); // Stops further animations after the first bounce
+            }
+          });
+        },
+        { threshold: 0.5 } // Triggers when 50% of the button is in view
+      );
+  
+      observer.observe(linkedinButton);
+    }
+  });
+
 })()

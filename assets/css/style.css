@@ -183,15 +183,34 @@ h6,
   font-size: 28px;
 }
 
-.readmore {
-  display: inline-block;
-  border: 1px solid #000;
-  padding: 10px 15px;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: #000;
-  transition: 0.2s all ease;
-  font-weight: 700;
+
+  .readmore {
+    display: inline-block;
+    border: none;
+    padding: 12px 18px;
+    font-size: 14px;
+    text-transform: uppercase;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(90deg, #cf40ff, #896eff, #4079ff);
+    background-size: 200% 200%;
+    animation: gradientFlow 3s ease-in-out infinite;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  /* Gradient Animation */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Slight hover effect */
+.readmore:hover {
+  transform: scale(1.05);
 }
 
 .readmore:active,
@@ -330,6 +349,26 @@ h6,
     transform: rotate(360deg);
   }
 }
+@keyframes bounceLoop {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.linkedin-icon {
+  display: inline-block;
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+  animation: bounceLoop 1s ease-in-out infinite;
+  animation-delay: 3s; /* Bounces every 3 seconds */
+}
+
+
+
+
 
 /*--------------------------------------------------------------
 # Header
@@ -404,7 +443,25 @@ h6,
   height: 32px;
   cursor: pointer;
   position: relative;
+  transition: transform 0.4s ease-in-out, background-color 0.3s ease-in-out;
 }
+
+/* Add a slight bounce animation on hover */
+.burger:hover {
+  transform: rotate(180deg);
+
+}
+/* Subtle bounce effect */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+.burger:hover span {
+  animation: bounce 0.6s infinite;
+}
+
+
 
 .burger:before,
 .burger span,
@@ -416,7 +473,15 @@ h6,
   border-radius: 2px;
   position: absolute;
   opacity: 1;
+  transition: background-color 0.3s ease-in-out;
 }
+
+.burger:hover:before,
+.burger:hover span,
+.burger:hover:after {
+  background: #ff4081; /* Change to a bright pink or any color */
+}
+
 
 .burger:before,
 .burger:after {
@@ -426,6 +491,7 @@ h6,
 }
 
 .burger:before {
+  content: "";
   top: 4px;
 }
 
@@ -434,6 +500,7 @@ h6,
 }
 
 .burger:after {
+  content: "";
   top: 26px;
 }
 
@@ -466,6 +533,14 @@ h6,
 
 .burger:focus {
   outline: none;
+}
+
+.about-photo {
+  max-width: 60%; /* Adjust the size (50% or 40% if needed) */
+  height: auto;
+  display: block;
+  border-radius: 10px; /* Optional: Adds rounded corners */
+  
 }
 
 /*--------------------------------------------------------------
